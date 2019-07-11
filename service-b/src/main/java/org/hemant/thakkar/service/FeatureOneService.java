@@ -1,18 +1,19 @@
 package org.hemant.thakkar.service;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service("featureOneService")
 public class FeatureOneService {
 
-	private static Log logger = LogFactory.getLog(FeatureOneService.class);
+	private static Logger logger = LoggerFactory.getLogger(FeatureOneService.class);
 
 	public String getStatus() {
-		logger.info("Entering getStatus");
+		logger.trace("Entering getStatus");
 		String result = "Service B - Feature One is alive\n";
-		logger.info("Exiting getStatus");
+		logger.trace("Exiting getStatus");
 		return result;
 	}
+	
 }

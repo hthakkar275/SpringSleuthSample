@@ -1,8 +1,8 @@
 package org.hemant.thakkar.controller;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.hemant.thakkar.service.FeatureTwoService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class FeatureTwoController {
 
-	private static Log logger = LogFactory.getLog(FeatureTwoController.class);
+	private static Logger logger = LoggerFactory.getLogger(FeatureTwoController.class);
 
 	@Autowired
 	@Qualifier("featureTwoService")
@@ -20,7 +20,9 @@ public class FeatureTwoController {
 
 	@RequestMapping(value = "/serviceB/featureTwo/status", method = RequestMethod.GET) 
 	public String getStatus() {
+		logger.trace("Entering getStatus");
 		String result = featureTwoService.getStatus();
+		logger.trace("Exiting getStatus");
 		return result;
 	}
 }
